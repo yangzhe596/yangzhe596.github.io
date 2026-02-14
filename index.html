@@ -1,5 +1,550 @@
 <!DOCTYPE html>
-<html>
-<head><title>我的主页</title></head>
-<body><h1>欢迎来到我的网站！</h1></body>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        /* 导航栏样式 */
+        nav {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 个人简介区域 */
+        .profile {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .profile p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .profile .social-links {
+            margin-top: 1.5rem;
+        }
+        
+        .profile .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        /* 博客文章列表 */
+        .blog-posts {
+            margin: 2rem 0;
+        }
+        
+        .blog-posts h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        .post {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .post:hover {
+            transform: translateY(-5px);
+        }
+        
+        .post h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .post .meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .post p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .post .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .post .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+            .profile h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* 鼠标拖尾特效 */
+        .trail {
+            position: fixed;
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: 9999;
+            animation: trail-fade 1s ease-out forwards;
+        }
+
+        @keyframes trail-fade {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+        /* Live2D 看板娘样式 */
+        #live2d-widget {
+            position: fixed !important;
+            right: 0 !important;
+            left: auto !important;
+            bottom: 0 !important;
+            top: auto !important;
+            transform: none !important;
+        }
+
+        #live2d-widget canvas {
+            pointer-events: auto;
+        }
+
+        #waifu {
+            right: 0 !important;
+            left: auto !important;
+        }
+
+        #waifu-tips {
+            right: 300px !important;
+            left: auto !important;
+        }
+
+        /* 移动端隐藏看板娘 */
+        @media (max-width: 768px) {
+            #live2d-widget {
+                display: none;
+            }
+        }
+
+        /* 对话框样式 */
+        .waifu-tips {
+            opacity: 0;
+            position: fixed;
+            right: 300px;
+            bottom: 20px;
+            min-height: 50px;
+            max-width: 250px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .waifu-tips.show {
+            opacity: 1;
+        }
+
+        .waifu-tips::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            bottom: 30px;
+            border-width: 10px 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.95);
+        }
+
+        /* 移动端隐藏对话框 */
+        @media (max-width: 768px) {
+            .waifu-tips {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">我的博客</div>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#blog">博客</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 个人简介区域 -->
+    <section class="profile" id="about">
+        <div class="container">
+            <h1>欢迎来到我的个人博客</h1>
+            <p>这里是我分享技术见解、生活感悟和创意想法的地方。我热爱编程，喜欢探索新技术，希望通过这个平台与大家交流学习。</p>
+            <div class="social-links">
+                <a href="https://github.com/yangzhe596" target="_blank">GitHub</a>
+                <a href="#">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 博客文章列表 -->
+    <section class="container blog-posts" id="blog">
+        <h2>最新文章</h2>
+        
+        <article class="post">
+            <h3>欢迎来到我的博客</h3>
+            <div class="meta">发布于 2026年2月14日</div>
+            <p>这是我的第一篇博客文章。在这里，我将分享我的技术学习经历、项目经验以及对编程的思考。希望这些内容能够对你有所帮助，也欢迎与我交流讨论！</p>
+            <a href="#" class="read-more">阅读更多 →</a>
+        </article>
+
+        <article class="post">
+            <h3>关于这个网站</h3>
+            <div class="meta">发布于 2026年2月14日</div>
+            <p>这个网站使用纯HTML和CSS构建，简洁而优雅。我计划在未来添加更多功能，比如博客文章管理系统、评论功能等。敬请期待！</p>
+            <a href="#" class="read-more">阅读更多 →</a>
+        </article>
+
+        <article class="post">
+            <h3>技术栈分享</h3>
+            <div class="meta">发布于 2026年2月14日</div>
+            <p>我主要使用的技术栈包括前端开发、后端开发以及一些自动化工具。在接下来的文章中，我会详细介绍这些技术的使用心得和最佳实践。</p>
+            <a href="#" class="read-more">阅读更多 →</a>
+        </article>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2026 我的个人博客. 保留所有权利.</p>
+            <p>使用 ❤️ 和代码构建</p>
+        </div>
+    </footer>
+
+    <script>
+        // 鼠标拖尾特效
+        const trailColors = ['#667eea', '#764ba2', '#3498db', '#e74c3c', '#2ecc71', '#f39c12'];
+        let trailCount = 0;
+        const maxTrails = 20;
+
+        document.addEventListener('mousemove', function(e) {
+            // 创建拖尾元素
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+
+            // 随机大小
+            const size = Math.random() * 15 + 10;
+            trail.style.width = size + 'px';
+            trail.style.height = size + 'px';
+
+            // 设置位置
+            trail.style.left = e.pageX - size / 2 + 'px';
+            trail.style.top = e.pageY - size / 2 + 'px';
+
+            // 随机颜色
+            const colorIndex = Math.floor(Math.random() * trailColors.length);
+            trail.style.backgroundColor = trailColors[colorIndex];
+
+            // 添加到页面
+            document.body.appendChild(trail);
+
+            // 限制拖尾数量
+            trailCount++;
+            if (trailCount > maxTrails) {
+                const oldTrail = document.querySelector('.trail');
+                if (oldTrail) {
+                    oldTrail.remove();
+                    trailCount--;
+                }
+            }
+
+            // 动画结束后移除元素
+            setTimeout(() => {
+                if (trail.parentNode) {
+                    trail.remove();
+                    trailCount--;
+                }
+            }, 1000);
+        });
+    </script>
+
+    <!-- Live2D 看板娘 -->
+    <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+    <!-- 对话框 -->
+    <div class="waifu-tips" id="waifu-tips"></div>
+
+    <script>
+        // 对话内容库
+        const dialogues = {
+            // 点击对话
+            click: [
+                "主人，你点我做什么呀？",
+                "有什么我可以帮你的吗？",
+                "今天也要加油哦！",
+                "记得多喝水，保持健康~",
+                "要不要休息一下？",
+                "你看起来很棒呢！",
+                "我在这里陪着你呢~",
+                "今天天气真好呢！",
+                "要不要聊聊天？",
+                "我会一直在这里等你~"
+            ],
+            // 时间问候
+            greeting: {
+                morning: [
+                    "早上好！新的一天开始了~",
+                    "早安，主人！今天也要元气满满哦！",
+                    "早上好呀，记得吃早餐哦~"
+                ],
+                afternoon: [
+                    "下午好！工作辛苦了~",
+                    "下午好，要不要喝杯茶？",
+                    "下午好，继续加油哦！"
+                ],
+                evening: [
+                    "晚上好！今天过得怎么样？",
+                    "晚上好，记得早点休息哦~",
+                    "晚上好，辛苦了一天了~"
+                ],
+                night: [
+                    "夜深了，早点休息吧~",
+                    "晚安，做个好梦哦！",
+                    "这么晚还在工作吗？要注意身体哦~"
+                ]
+            },
+            // 鼠标悬停对话
+            hover: [
+                "想和我说话吗？",
+                "我在听呢~",
+                "有什么想告诉我的吗？",
+                "我在这里哦~"
+            ],
+            // 页面相关对话
+            page: {
+                home: "欢迎来到我的博客！",
+                about: "想了解更多关于我的信息吗？",
+                blog: "这里有很多有趣的文章哦~",
+                contact: "有话想对我说吗？"
+            }
+        };
+
+        let tipsTimer = null;
+        const tipsElement = document.getElementById('waifu-tips');
+
+        // 显示对话
+        function showTips(message, duration = 3000) {
+            tipsElement.textContent = message;
+            tipsElement.classList.add('show');
+
+            if (tipsTimer) {
+                clearTimeout(tipsTimer);
+            }
+
+            tipsTimer = setTimeout(() => {
+                tipsElement.classList.remove('show');
+            }, duration);
+        }
+
+        // 随机获取对话
+        function getRandomDialogue(type) {
+            const dialoguesList = dialogues[type];
+            return dialoguesList[Math.floor(Math.random() * dialoguesList.length)];
+        }
+
+        // 根据时间获取问候语
+        function getTimeGreeting() {
+            const hour = new Date().getHours();
+            let timeType;
+
+            if (hour >= 5 && hour < 12) {
+                timeType = 'morning';
+            } else if (hour >= 12 && hour < 18) {
+                timeType = 'afternoon';
+            } else if (hour >= 18 && hour < 22) {
+                timeType = 'evening';
+            } else {
+                timeType = 'night';
+            }
+
+            const greetings = dialogues.greeting[timeType];
+            return greetings[Math.floor(Math.random() * greetings.length)];
+        }
+
+        // 页面加载完成后显示问候
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showTips(getTimeGreeting(), 4000);
+            }, 1000);
+        });
+
+        // 点击看板娘显示对话
+        document.addEventListener('click', (e) => {
+            // 检查是否点击的是 Live2D 画布
+            if (e.target.tagName === 'CANVAS' || e.target.closest('canvas')) {
+                showTips(getRandomDialogue('click'));
+            }
+        });
+
+        // 鼠标悬停在 Live2D 上显示对话
+        let hoverTimer = null;
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.tagName === 'CANVAS' || e.target.closest('canvas')) {
+                if (hoverTimer) clearTimeout(hoverTimer);
+                hoverTimer = setTimeout(() => {
+                    showTips(getRandomDialogue('hover'), 2000);
+                }, 500);
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.tagName === 'CANVAS' || e.target.closest('canvas')) {
+                if (hoverTimer) clearTimeout(hoverTimer);
+            }
+        });
+
+        // 导航链接对话
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && dialogues.page[href.substring(1)]) {
+                    setTimeout(() => {
+                        showTips(dialogues.page[href.substring(1)]);
+                    }, 500);
+                }
+            });
+        });
+
+        // 定时随机对话（每30秒）
+        setInterval(() => {
+            if (!tipsElement.classList.contains('show')) {
+                const randomMessages = [
+                    "还在看吗？要不要休息一下？",
+                    "今天过得怎么样？",
+                    "有什么有趣的事情想分享吗？",
+                    "我会一直陪着你的~",
+                    "记得按时吃饭哦~"
+                ];
+                showTips(randomMessages[Math.floor(Math.random() * randomMessages.length)]);
+            }
+        }, 30000);
+    </script>
+</body>
 </html>
