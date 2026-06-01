@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yang Zhe - Personal Page</title>
+    <title>Yang Zhe - Autonomous Driving Engineer</title>
+    <meta name="description" content="Autonomous Driving Algorithm Engineer with 4 years of experience in perception, sensor fusion, and simulation systems.">
     <style>
         :root {
             --bg: #0d1117;
@@ -64,25 +65,43 @@
         .hero .avatar {
             width: 120px; height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), #a855f7);
+            background: linear-gradient(135deg, #58a6ff, #a855f7);
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 24px;
-            font-size: 48px; color: #fff;
+            font-size: 48px; color: #fff; font-weight: 700;
         }
         .hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
+        .hero .title {
+            font-size: 1.15rem; color: var(--accent); margin-bottom: 6px;
+            font-weight: 500;
+        }
         .hero .subtitle {
-            font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 16px;
+            font-size: 1rem; color: var(--text-secondary); margin-bottom: 20px;
         }
-        .hero .research-tags {
+        .hero .highlights {
+            display: flex; gap: 24px; justify-content: center; margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .hero .highlights .item {
+            text-align: center;
+        }
+        .hero .highlights .item .num {
+            font-size: 1.8rem; font-weight: 700; color: var(--accent);
+        }
+        .hero .highlights .item .label {
+            font-size: 0.85rem; color: var(--text-secondary);
+        }
+        .hero .tags {
             display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        .hero .research-tags span {
+        .hero .tags span {
             background: var(--tag-bg); color: var(--tag-text);
             padding: 4px 14px; border-radius: 20px; font-size: 0.85rem;
         }
-        .hero .links { margin-top: 24px; display: flex; gap: 20px; justify-content: center; }
+        .hero .links { display: flex; gap: 20px; justify-content: center; }
         .hero .links a {
-            color: var(--text-secondary); font-size: 1.1rem;
+            color: var(--text-secondary); font-size: 1rem;
             display: flex; align-items: center; gap: 6px;
         }
         .hero .links a:hover { color: var(--accent); }
@@ -99,19 +118,54 @@
         /* About */
         .about-text { color: var(--text-secondary); font-size: 1.05rem; max-width: 700px; }
         .about-text p + p { margin-top: 16px; }
+        .about-text strong { color: var(--text); }
+
+        /* Skills */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;
+        }
+        .skill-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 10px; padding: 20px;
+        }
+        .skill-card h3 { font-size: 1rem; margin-bottom: 10px; color: var(--accent); }
+        .skill-card ul { list-style: none; }
+        .skill-card ul li {
+            color: var(--text-secondary); font-size: 0.9rem;
+            padding: 3px 0;
+        }
+        .skill-card ul li::before {
+            content: "›"; color: var(--accent); margin-right: 8px; font-weight: bold;
+        }
 
         /* Projects */
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px;
-        }
         .project-card {
             background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 12px; padding: 24px;
+            border-radius: 12px; padding: 24px; margin-bottom: 16px;
             transition: border-color 0.3s, transform 0.2s;
         }
         .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-        .project-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .project-card .project-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 8px; margin-bottom: 10px;
+        }
+        .project-card h3 { font-size: 1.1rem; }
+        .project-card .role {
+            color: var(--text-secondary); font-size: 0.85rem;
+            background: var(--tag-bg); padding: 2px 10px; border-radius: 12px;
+        }
         .project-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 12px; }
+        .project-card .highlights-list {
+            list-style: none; margin-bottom: 12px;
+        }
+        .project-card .highlights-list li {
+            color: var(--text-secondary); font-size: 0.9rem;
+            padding: 3px 0; padding-left: 16px; position: relative;
+        }
+        .project-card .highlights-list li::before {
+            content: "✓"; position: absolute; left: 0;
+            color: #3fb950; font-weight: bold;
+        }
         .project-card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
         .project-card .tags span {
             background: var(--tag-bg); color: var(--tag-text);
@@ -126,7 +180,7 @@
         }
         .pub-list li:last-child { border-bottom: none; }
         .pub-title { font-weight: 600; font-size: 1rem; }
-        .pub-venue { color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px; }
+        .pub-venue { color: var(--accent); font-size: 0.9rem; margin-top: 4px; }
         .pub-authors { color: var(--text-secondary); font-size: 0.85rem; margin-top: 2px; }
 
         /* Contact */
@@ -149,7 +203,8 @@
         @media (max-width: 768px) {
             .hero { padding: 60px 0 40px; }
             .hero h1 { font-size: 1.8rem; }
-            .projects-grid { grid-template-columns: 1fr; }
+            .hero .highlights { gap: 16px; }
+            .skills-grid { grid-template-columns: 1fr; }
             .theme-toggle { top: 12px; right: 12px; }
         }
     </style>
@@ -162,19 +217,32 @@
         <div class="container">
             <div class="avatar">Z</div>
             <h1>Yang Zhe</h1>
-            <p class="subtitle">Researcher & Engineer</p>
-            <div class="research-tags">
+            <p class="title">Autonomous Driving Algorithm Engineer</p>
+            <p class="subtitle">4 years in perception, sensor fusion & simulation systems</p>
+            <div class="highlights">
+                <div class="item">
+                    <div class="num">4+</div>
+                    <div class="label">Years Experience</div>
+                </div>
+                <div class="item">
+                    <div class="num">2</div>
+                    <div class="label">Core Projects</div>
+                </div>
+                <div class="item">
+                    <div class="num">3</div>
+                    <div class="label">Tech Domains</div>
+                </div>
+            </div>
+            <div class="tags">
+                <span>Perception</span>
+                <span>Sensor Fusion</span>
                 <span>Event Camera</span>
-                <span>Object Detection</span>
-                <span>Autonomous Driving</span>
-                <span>Computer Vision</span>
+                <span>Simulation</span>
+                <span>Deep Learning</span>
             </div>
             <div class="links">
                 <a href="https://github.com/yangzhe596" target="_blank">
                     <span>⚡</span> GitHub
-                </a>
-                <a href="mailto:yangzhe596@gmail.com">
-                    <span>✉</span> Email
                 </a>
             </div>
         </div>
@@ -186,39 +254,91 @@
             <h2><span class="icon">👤</span> About</h2>
             <div class="about-text">
                 <p>
-                    我是一名计算机视觉方向的研究者与工程师，主要关注<strong>事件相机（Event Camera / DVS）</strong>
-                    与 RGB 相机融合的实时目标检测技术，尤其在<strong>反无人机</strong>应用场景中。
+                    自动驾驶行业算法工程师，<strong>4 年</strong>从业经验。主要负责<strong>感知算法</strong>的研发与落地，
+                    涵盖多传感器融合、目标检测与跟踪等核心模块。
                 </p>
                 <p>
-                    目前同时在推进基于 <strong>MCap 文件回放的自动驾驶仿真系统</strong>，探索算法节点调度、
-                    确定性复现、并行同步等工程问题。
+                    近期研究方向聚焦于<strong>事件相机（Event Camera / DVS）与 RGB 融合</strong>的实时目标检测，
+                    以及基于 <strong>MCap 回放的高保真仿真系统</strong>开发。关注算法从研究到量产的全链路落地。
                 </p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2><span class="icon">🛠</span> Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Perception & Vision</h3>
+                    <ul>
+                        <li>Event Camera (DVS) Fusion</li>
+                        <li>Multi-Object Detection & Tracking</li>
+                        <li>Multi-Modal Sensor Fusion</li>
+                        <li>Real-Time Inference Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Simulation & Systems</h3>
+                    <ul>
+                        <li>MCap-Based AD Simulation</li>
+                        <li>Deterministic Replay & Scheduling</li>
+                        <li>Parallel Sync & Barrier Coordination</li>
+                        <li>Algorithm-Real Consistency Validation</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Frameworks</h3>
+                    <ul>
+                        <li>PyTorch / ONNX / TensorRT</li>
+                        <li>ROS / ROS2</li>
+                        <li>C++ / Python</li>
+                        <li>CUDA / GPU Optimization</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- Projects -->
         <section id="projects">
             <h2><span class="icon">🔬</span> Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Event Camera + RGB Drone Detection</h3>
-                    <p>基于事件相机与 RGB 融合的无人机实时检测系统，面向反无人机场景。关注高动态范围、低延迟推理。</p>
-                    <div class="tags">
-                        <span>Event Camera</span>
-                        <span>DVS</span>
-                        <span>Real-time Detection</span>
-                        <span>Multi-modal Fusion</span>
-                    </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Event Camera + RGB Fusion for Real-Time Object Detection</h3>
+                    <span class="role">Core Developer</span>
                 </div>
-                <div class="project-card">
-                    <h3>MCap-based AD Simulation</h3>
-                    <p>基于 MCap 文件回放的自动驾驶仿真系统，支持时间触发与消息触发两种算法节点，追求仿真与实车表现一致性。</p>
-                    <div class="tags">
-                        <span>MCap</span>
-                        <span>Simulation</span>
-                        <span>Scheduling</span>
-                        <span>Deterministic Replay</span>
-                    </div>
+                <p>面向反无人机场景，基于事件相机与 RGB 相机融合的实时目标检测系统。解决传统相机在高动态、强光照变化场景下的感知瓶颈。</p>
+                <ul class="highlights-list">
+                    <li>设计并实现事件流与帧图像的多模态融合架构</li>
+                    <li>针对高动态场景优化检测延迟，满足实时性要求</li>
+                    <li>复现并改进前沿方法，在多个数据集上验证有效性</li>
+                </ul>
+                <div class="tags">
+                    <span>Event Camera</span>
+                    <span>DVS</span>
+                    <span>Multi-Modal Fusion</span>
+                    <span>Real-Time Detection</span>
+                    <span>Anti-Drone</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>MCap-Based Autonomous Driving Simulation System</h3>
+                    <span class="role">Tech Lead</span>
+                </div>
+                <p>基于 MCap 文件回放的自动驾驶仿真系统，支持算法节点的时间触发与消息触发两种模式，追求仿真结果与实车表现的高度一致性。</p>
+                <ul class="highlights-list">
+                    <li>设计并行调度框架，支持多仿真实例的确定性执行</li>
+                    <li>实现 barrier 同步 + 双缓冲机制，保证数据一致性</li>
+                    <li>建立仿真-实车对齐验证流程，确保算法验证可靠性</li>
+                </ul>
+                <div class="tags">
+                    <span>MCap</span>
+                    <span>Simulation</span>
+                    <span>Deterministic Replay</span>
+                    <span>Scheduling</span>
+                    <span>System Design</span>
                 </div>
             </div>
         </section>
@@ -240,9 +360,6 @@
             <div class="contact-links">
                 <a class="contact-item" href="https://github.com/yangzhe596" target="_blank">
                     <span class="icon">⚡</span> GitHub
-                </a>
-                <a class="contact-item" href="mailto:yangzhe596@gmail.com">
-                    <span class="icon">✉</span> Email
                 </a>
             </div>
         </section>
