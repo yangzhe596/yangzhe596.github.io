@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yang Zhe — 自动驾驶感知算法工程师</title>
-<meta name="description" content="Yang Zhe，自动驾驶感知算法工程师，4 年经验。方向：多传感器融合、目标检测与跟踪、基于 MCap 回放的自动驾驶仿真。">
+<meta name="description" content="Yang Zhe，自动驾驶感知算法工程师，4 年经验。方向：感知模型部署落地与推理性能优化、仿真平台搭建与吞吐优化。">
 <meta name="author" content="Yang Zhe">
 <meta name="referrer" content="no-referrer">
 <link rel="canonical" href="https://yangzhe596.github.io/">
@@ -14,15 +14,15 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Yang Zhe">
 <meta property="og:title" content="Yang Zhe — 自动驾驶感知算法工程师">
-<meta property="og:description" content="多传感器融合 · 目标检测与跟踪 · MCap 回放仿真。">
+<meta property="og:description" content="感知模型部署与性能优化 · 仿真平台与吞吐优化。">
 <meta property="og:url" content="https://yangzhe596.github.io/">
-<meta property="og:image" content="https://yangzhe596.github.io/og.png?v=2">
+<meta property="og:image" content="https://yangzhe596.github.io/og.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Yang Zhe — 自动驾驶感知算法工程师">
-<meta name="twitter:description" content="多传感器融合 · 目标检测与跟踪 · MCap 回放仿真。">
-<meta name="twitter:image" content="https://yangzhe596.github.io/og.png?v=2">
+<meta name="twitter:description" content="感知模型部署与性能优化 · 仿真平台与吞吐优化。">
+<meta name="twitter:image" content="https://yangzhe596.github.io/og.png?v=3">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0c10'/%3E%3Cpath d='M18 17h28L26 47h21' fill='none' stroke='%23f0b429' stroke-width='7' stroke-linecap='square'/%3E%3C/svg%3E">
 
@@ -34,7 +34,7 @@
   "jobTitle": "自动驾驶感知算法工程师",
   "url": "https://yangzhe596.github.io/",
   "sameAs": ["https://github.com/yangzhe596"],
-  "knowsAbout": ["自动驾驶感知", "多传感器融合", "目标检测与跟踪", "仿真系统", "C++", "PyTorch"]
+  "knowsAbout": ["感知模型部署", "推理性能优化", "仿真平台", "多传感器融合", "C++", "PyTorch"]
 }
 </script>
 
@@ -396,8 +396,8 @@
         <h1>Yang&nbsp;Zhe</h1>
         <div class="hero-sub">自动驾驶感知算法工程师 · 控制工程硕士</div>
         <p class="lead">
-          做感知算法落地：<strong>多传感器融合</strong>、目标检测与跟踪。近两年的重心是
-          <strong>基于 MCap 回放的高保真仿真</strong>——让算法在仿真里跑出来的结果能对上实车。
+          四年做两件事：把<strong>感知模型部署到线上</strong>，并把推理延迟和资源占用压下来；
+          把<strong>仿真平台</strong>搭起来，让回归验证跑得更快。链路打通只是开始，稳定运行才算落地。
         </p>
         <div class="cta">
           <a class="btn btn-solid" href="#projects">
@@ -418,7 +418,7 @@
       <aside class="facts">
         <h2 class="mono">quick facts</h2>
         <div class="fact"><div class="k mono">经验</div><div class="v">4 年 · 自动驾驶感知</div></div>
-        <div class="fact"><div class="k mono">方向</div><div class="v">感知 <em>·</em> 融合 <em>·</em> 仿真</div></div>
+        <div class="fact"><div class="k mono">方向</div><div class="v">部署 <em>·</em> 性能 <em>·</em> 仿真</div></div>
         <div class="fact"><div class="k mono">主要语言</div><div class="v">C++ / Python</div></div>
         <div class="fact"><div class="k mono">框架</div><div class="v">PyTorch · ONNX · TensorRT · ROS</div></div>
         <div class="fact"><div class="k mono">更新于</div><div class="v mono" style="font-size:.85rem">2026.11</div></div>
@@ -436,11 +436,18 @@
       <div class="prose">
         <p>
           自动驾驶行业算法工程师，<strong>控制专业硕士</strong>，<strong>4 年</strong>从业经验。
-          主要负责感知算法的研发与落地，涵盖多传感器融合、目标检测与跟踪等核心模块，关注算法从研究到量产的全链路。
+          工作内容集中在两块：<strong>感知算法的部署落地与性能优化</strong>，
+          以及<strong>仿真平台的系统搭建与吞吐优化</strong>。
         </p>
         <p>
-          近两年的重心是<strong>基于 MCap 回放的仿真系统</strong>：算法节点按时间触发和消息触发两种模式调度，
+          部署这块是把感知模型从训练产物送到线上推理：导出、图优化、推理引擎接入，
+          再定位推理链路和数据链路上的瓶颈，做延迟、内存与吞吐层面的优化。
+          难点不在跑通，而在精度与实时性之间的取舍——优化完还得保证结果不退化。
+        </p>
+        <p>
+          仿真这块是基于 <strong>MCap 回放</strong>的平台：节点按时间触发和消息触发两种模式调度，
           追求多次仿真的确定性与仿真-实车的一致性——仿真结果不可复现，回归结论就没有意义。
+          在此之上做并行调度与数据链路的优化，让同一批数据能更快跑完。
         </p>
         <p>
           工作之外在补底层：从零写 x86_64 libc（<a href="https://github.com/yangzhe596/musl-from-scratch" target="_blank" rel="noopener" style="color:var(--accent)">musl-from-scratch</a>），
@@ -464,8 +471,10 @@
             <div class="xp-role">自动驾驶感知算法工程师</div>
             <div class="xp-org">感知算法方向</div>
             <ul class="xp-list">
-              <li>负责感知模块核心算法研发，涵盖多传感器融合、目标检测与跟踪</li>
-              <li>设计并搭建基于 <code>MCap</code> 的自动驾驶仿真系统，支撑算法回归验证</li>
+              <li>感知算法模型部署落地：训练产物 → 线上推理的完整链路，含导出、图优化与推理引擎接入</li>
+              <li>推理性能优化：定位推理与数据链路瓶颈，优化延迟、内存与吞吐，兼顾精度不退化</li>
+              <li>仿真平台系统搭建与性能优化：<code>MCap</code> 回放、确定性调度，提升回归验证的吞吐</li>
+              <li>感知算法研发：多传感器融合、目标检测与跟踪</li>
             </ul>
           </div>
         </div>
@@ -501,12 +510,23 @@
           </dd>
         </div>
         <div class="stack-row">
+          <dt class="mono">部署 / 性能</dt>
+          <dd class="chips">
+            <span class="chip">模型导出 ONNX</span>
+            <span class="chip">推理引擎 TensorRT</span>
+            <span class="chip">图优化 / 算子融合</span>
+            <span class="chip">延迟与内存优化</span>
+            <span class="chip">吞吐优化</span>
+          </dd>
+        </div>
+        <div class="stack-row">
           <dt class="mono">仿真 / 系统</dt>
           <dd class="chips">
             <span class="chip">MCap 回放</span>
             <span class="chip">确定性调度</span>
-            <span class="chip">Barrier 同步</span>
+            <span class="chip">barrier 同步</span>
             <span class="chip">双缓冲</span>
+            <span class="chip">多实例并行</span>
             <span class="chip">仿真-实车对齐</span>
           </dd>
         </div>
@@ -546,6 +566,59 @@
         <div class="proj-top">
           <div class="proj-body">
             <div class="proj-meta">
+              <span class="role mono">DEPLOYMENT &amp; PERF</span>
+              <span class="proj-year mono">部署落地 · 性能优化</span>
+            </div>
+            <h3>感知模型部署链路与推理性能优化
+              <span class="en mono">Perception Model Deployment &amp; Inference Optimization</span>
+            </h3>
+            <p>
+              把感知模型从训练产物送到线上推理，并在实时性约束下把性能压下来。
+              链路打通只是第一步——跑得稳、跑得快，才算真正落地。
+            </p>
+            <ul class="proj-hl">
+              <li>打通训练产物到线上推理的部署链路：模型导出、图优化、推理引擎接入</li>
+              <li>定位推理链路与数据链路上的瓶颈，在延迟、内存与吞吐上做优化</li>
+              <li>在精度与实时性之间做取舍，保证优化后结果不退化</li>
+            </ul>
+            <div class="proj-tags">
+              <span>Model Deployment</span><span>ONNX</span><span>TensorRT</span><span>Inference Perf</span><span>Latency</span>
+            </div>
+          </div>
+          <div class="diagram" aria-hidden="true">
+            <svg viewBox="0 0 560 196" role="img">
+              <rect class="d-box" x="6" y="56" width="112" height="52" rx="7"/>
+              <text class="d-t" x="18" y="77">训练产物</text>
+              <text class="d-s" x="18" y="92">PyTorch 权重</text>
+
+              <rect class="d-box" x="146" y="56" width="112" height="52" rx="7"/>
+              <text class="d-t" x="158" y="77">导出 / 图优化</text>
+              <text class="d-s" x="158" y="92">ONNX</text>
+
+              <rect class="d-box accent" x="286" y="56" width="112" height="52" rx="7"/>
+              <text class="d-t" x="298" y="77">推理引擎</text>
+              <text class="d-s" x="298" y="92">TensorRT</text>
+
+              <rect class="d-box" x="426" y="56" width="128" height="52" rx="7"/>
+              <text class="d-t" x="438" y="77">线上推理</text>
+              <text class="d-s" x="438" y="92">延迟 · 内存 · 吞吐</text>
+
+              <path class="d-a" d="M118 82h22"/><path class="d-a" d="M134 78l6 4-6 4"/>
+              <path class="d-a-accent" d="M258 82h22"/><path class="d-a-accent" d="M274 78l6 4-6 4"/>
+              <path class="d-a" d="M398 82h22"/><path class="d-a" d="M414 78l6 4-6 4"/>
+
+              <path class="d-dash" d="M146 152h280"/>
+              <text class="d-s" x="286" y="143" text-anchor="middle">性能分析 → 瓶颈定位 → 迭代优化</text>
+            </svg>
+            <span class="dhint mono">← 左右滑动查看 →</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top">
+          <div class="proj-body">
+            <div class="proj-meta">
               <span class="role mono">TECH LEAD</span>
               <span class="proj-year mono">仿真 · 复现性</span>
             </div>
@@ -559,10 +632,11 @@
             <ul class="proj-hl">
               <li>设计并行调度框架，支持多仿真实例的确定性执行</li>
               <li>用 barrier 同步 + 双缓冲保证跨节点数据一致性</li>
+              <li>优化并行度与数据链路，提升回归验证的吞吐</li>
               <li>建立仿真-实车对齐验证流程，确认算法回归结论可信</li>
             </ul>
             <div class="proj-tags">
-              <span>MCap</span><span>Simulation</span><span>Deterministic Replay</span><span>Scheduling</span><span>System Design</span>
+              <span>MCap</span><span>Simulation</span><span>Deterministic Replay</span><span>Throughput</span><span>System Design</span>
             </div>
           </div>
           <div class="diagram" aria-hidden="true">
