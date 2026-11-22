@@ -294,11 +294,11 @@
             </div>
             <div class="cta">
                 <a href="https://github.com/yangzhe596" target="_blank" class="btn btn-primary">⚡ GitHub</a>
-                <a href="mailto:yangzhe596@163.com" class="btn btn-outline">✉ Contact</a>
+                <a href="#" data-mail class="btn btn-outline">✉ Contact</a>
             </div>
             <div class="social-links">
                 <a href="https://github.com/yangzhe596" target="_blank" title="GitHub">⚡</a>
-                <a href="mailto:yangzhe596@163.com" title="Email">✉</a>
+                <a href="#" data-mail title="Email">✉</a>
             </div>
         </div>
     </header>
@@ -458,11 +458,11 @@
                         <span class="value">yangzhe596</span>
                     </div>
                 </a>
-                <a class="contact-card" href="mailto:yangzhe596@163.com">
+                <a class="contact-card" href="#" data-mail>
                     <span class="icon">✉</span>
                     <div class="info">
                         <span class="label">Email</span>
-                        <span class="value">yangzhe596@163.com</span>
+                        <span class="value" data-mail-label>点击显示并复制</span>
                     </div>
                 </a>
             </div>
@@ -476,6 +476,23 @@
     </footer>
 
     <script>
+        // 邮箱不写进 HTML 明文，点击时才拼装
+        (function () {
+            var parts = ['yangzhe596', '163', 'com'];
+            var addr = parts[0] + '\u0040' + parts[1] + '.' + parts[2];
+            var links = document.querySelectorAll('[data-mail]');
+            for (var i = 0; i < links.length; i++) {
+                (function (el) {
+                    el.addEventListener('click', function () {
+                        var label = el.querySelector('[data-mail-label]');
+                        if (label) label.textContent = addr;
+                        try { if (navigator.clipboard) navigator.clipboard.writeText(addr); } catch (e) {}
+                        el.setAttribute('href', 'mailto:' + addr);
+                    });
+                })(links[i]);
+            }
+        })();
+
         function toggleTheme() {
             const body = document.body;
             const btn = document.querySelector('.theme-toggle');
