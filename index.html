@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yang Zhe — 自动驾驶感知算法工程师</title>
-<meta name="description" content="Yang Zhe，自动驾驶感知算法工程师，4 年经验。方向：多传感器融合、事件相机（DVS）+ RGB 实时目标检测、基于 MCap 回放的自动驾驶仿真。">
+<meta name="description" content="Yang Zhe，自动驾驶感知算法工程师，4 年经验。方向：多传感器融合、目标检测与跟踪、基于 MCap 回放的自动驾驶仿真。">
 <meta name="author" content="Yang Zhe">
 <meta name="referrer" content="no-referrer">
 <link rel="canonical" href="https://yangzhe596.github.io/">
@@ -14,15 +14,15 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Yang Zhe">
 <meta property="og:title" content="Yang Zhe — 自动驾驶感知算法工程师">
-<meta property="og:description" content="多传感器融合 · 事件相机 + RGB 实时检测 · MCap 回放仿真。">
+<meta property="og:description" content="多传感器融合 · 目标检测与跟踪 · MCap 回放仿真。">
 <meta property="og:url" content="https://yangzhe596.github.io/">
-<meta property="og:image" content="https://yangzhe596.github.io/og.png">
+<meta property="og:image" content="https://yangzhe596.github.io/og.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Yang Zhe — 自动驾驶感知算法工程师">
-<meta name="twitter:description" content="多传感器融合 · 事件相机 + RGB 实时检测 · MCap 回放仿真。">
-<meta name="twitter:image" content="https://yangzhe596.github.io/og.png">
+<meta name="twitter:description" content="多传感器融合 · 目标检测与跟踪 · MCap 回放仿真。">
+<meta name="twitter:image" content="https://yangzhe596.github.io/og.png?v=2">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0c10'/%3E%3Cpath d='M18 17h28L26 47h21' fill='none' stroke='%23f0b429' stroke-width='7' stroke-linecap='square'/%3E%3C/svg%3E">
 
@@ -34,7 +34,7 @@
   "jobTitle": "自动驾驶感知算法工程师",
   "url": "https://yangzhe596.github.io/",
   "sameAs": ["https://github.com/yangzhe596"],
-  "knowsAbout": ["自动驾驶感知", "多传感器融合", "事件相机", "目标检测", "仿真系统", "C++", "PyTorch"]
+  "knowsAbout": ["自动驾驶感知", "多传感器融合", "目标检测与跟踪", "仿真系统", "C++", "PyTorch"]
 }
 </script>
 
@@ -396,9 +396,8 @@
         <h1>Yang&nbsp;Zhe</h1>
         <div class="hero-sub">自动驾驶感知算法工程师 · 控制工程硕士</div>
         <p class="lead">
-          做感知算法落地：<strong>多传感器融合</strong>、目标检测与跟踪。近两年主要在啃两件事——
-          <strong>事件相机（DVS）与 RGB 的实时融合检测</strong>，以及基于
-          <strong>MCap 回放的高保真仿真</strong>，让算法在仿真里跑出来的结果能对上实车。
+          做感知算法落地：<strong>多传感器融合</strong>、目标检测与跟踪。近两年的重心是
+          <strong>基于 MCap 回放的高保真仿真</strong>——让算法在仿真里跑出来的结果能对上实车。
         </p>
         <div class="cta">
           <a class="btn btn-solid" href="#projects">
@@ -440,10 +439,8 @@
           主要负责感知算法的研发与落地，涵盖多传感器融合、目标检测与跟踪等核心模块，关注算法从研究到量产的全链路。
         </p>
         <p>
-          近期方向聚焦于<strong>事件相机（Event Camera / DVS）与 RGB 融合</strong>的实时目标检测——
-          事件流没有运动模糊、动态范围高，适合高动态与小目标的场景；难点在两种模态的时间对齐与稀疏数据的表示。
-          另一条线是<strong>基于 MCap 回放的仿真系统</strong>：算法节点按时间触发和消息触发两种模式调度，
-          追求多次仿真的确定性与仿真-实车的一致性。
+          近两年的重心是<strong>基于 MCap 回放的仿真系统</strong>：算法节点按时间触发和消息触发两种模式调度，
+          追求多次仿真的确定性与仿真-实车的一致性——仿真结果不可复现，回归结论就没有意义。
         </p>
         <p>
           工作之外在补底层：从零写 x86_64 libc（<a href="https://github.com/yangzhe596/musl-from-scratch" target="_blank" rel="noopener" style="color:var(--accent)">musl-from-scratch</a>），
@@ -468,7 +465,6 @@
             <div class="xp-org">感知算法方向</div>
             <ul class="xp-list">
               <li>负责感知模块核心算法研发，涵盖多传感器融合、目标检测与跟踪</li>
-              <li>主导事件相机 + RGB 融合检测方案：调研、实现与数据集验证（<code>FRED</code> / <code>NeRDD</code>）</li>
               <li>设计并搭建基于 <code>MCap</code> 的自动驾驶仿真系统，支撑算法回归验证</li>
             </ul>
           </div>
@@ -499,7 +495,6 @@
         <div class="stack-row">
           <dt class="mono">感知 / 视觉</dt>
           <dd class="chips">
-            <span class="chip">Event Camera (DVS)</span>
             <span class="chip">多模态融合</span>
             <span class="chip">目标检测与跟踪</span>
             <span class="chip">实时推理优化</span>
@@ -546,63 +541,6 @@
         <h2>项目</h2>
         <span class="note mono">projects</span>
       </div>
-
-      <article class="proj">
-        <div class="proj-top">
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="role mono">CORE DEVELOPER</span>
-              <span class="proj-year mono">反无人机 · 事件视觉</span>
-            </div>
-            <h3>事件相机 + RGB 融合的实时目标检测
-              <span class="en mono">Event Camera + RGB Fusion for Real-Time Object Detection</span>
-            </h3>
-            <p>
-              面向反无人机场景的实时检测系统。传统帧相机在高动态、强光照变化下会因运动模糊与动态范围不足丢失小目标；
-              事件相机以微秒级时间分辨率和高动态范围补上这一块。
-            </p>
-            <ul class="proj-hl">
-              <li>设计事件流与帧图像的多模态融合架构，处理两种模态的时间对齐与稀疏表示</li>
-              <li>针对高动态场景优化检测延迟，满足实时性约束</li>
-              <li>复现并改进前沿方法，在 FRED / NeRDD 等公开数据集上验证</li>
-            </ul>
-            <div class="proj-tags">
-              <span>Event Camera</span><span>DVS</span><span>Multi-Modal Fusion</span><span>Real-Time</span><span>Counter-UAV</span>
-            </div>
-          </div>
-          <div class="diagram" aria-hidden="true">
-            <svg viewBox="0 0 560 196" role="img">
-              <rect class="d-box" x="8" y="26" width="118" height="48" rx="7"/>
-              <text class="d-t" x="20" y="46">事件流 DVS</text>
-              <text class="d-s" x="20" y="61">µs 级 · 异步</text>
-              <path class="d-tick" d="M96 44v12M104 40v16M112 47v9"/>
-
-              <rect class="d-box" x="8" y="112" width="118" height="48" rx="7"/>
-              <text class="d-t" x="20" y="132">RGB 帧流</text>
-              <text class="d-s" x="20" y="147">固定帧率</text>
-              <rect class="d-tick" x="96" y="126" width="16" height="11" fill="none"/>
-              <rect class="d-tick" x="96" y="140" width="16" height="11" fill="none"/>
-
-              <rect class="d-box" x="176" y="69" width="104" height="50" rx="7"/>
-              <text class="d-t" x="188" y="89">时间对齐</text>
-              <text class="d-s" x="188" y="104">timestamp sync</text>
-
-              <rect class="d-box accent" x="320" y="69" width="104" height="50" rx="7"/>
-              <text class="d-t" x="332" y="89">融合骨干</text>
-              <text class="d-s" x="332" y="104">dual-stream</text>
-
-              <rect class="d-box" x="464" y="69" width="88" height="50" rx="7"/>
-              <text class="d-t" x="476" y="89">检测头</text>
-              <text class="d-s" x="476" y="104">框 + 类别</text>
-
-              <path class="d-a" d="M126 50h28v27h22"/><path class="d-a" d="M126 136h28v-25h22"/>
-              <path class="d-a-accent" d="M280 94h40"/><path class="d-a" d="M424 94h40"/>
-              <path class="d-a" d="M274 89l6 5-6 5"/><path class="d-a-accent" d="M314 89l6 5-6 5"/><path class="d-a" d="M458 89l6 5-6 5"/>
-            </svg>
-            <span class="dhint mono">← 左右滑动查看 →</span>
-          </div>
-        </div>
-      </article>
 
       <article class="proj">
         <div class="proj-top">
@@ -693,13 +631,6 @@
         <div>
           <a class="name" href="https://github.com/yangzhe596/yolo12-pytorch" target="_blank" rel="noopener">yolo12-pytorch</a>
           <div class="desc">YOLOv12 的 PyTorch 从零实现，含训练、预测与 mAP 评估脚本，不依赖 detectron/ultralytics 高层封装。</div>
-        </div>
-        <div class="lang"><i class="c-py"></i>Python</div>
-      </div>
-      <div class="repo">
-        <div>
-          <a class="name" href="https://github.com/yangzhe596/yolov5-pytorch" target="_blank" rel="noopener">yolov5-pytorch</a>
-          <div class="desc">在 YOLOv5 上做 FRED 事件相机数据集的适配：标注格式转换、COCO / 融合格式导出与 mAP 评测脚本。</div>
         </div>
         <div class="lang"><i class="c-py"></i>Python</div>
       </div>
